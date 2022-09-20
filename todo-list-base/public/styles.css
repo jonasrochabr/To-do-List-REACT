@@ -1,12 +1,12 @@
 body {
-  background-color: #7A90FE;
+  background-color: #fe7a7a;
   min-height: 70vh;
   padding: 1rem;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: hsl(198, 1%, 29%);
+  color: hsl(210, 82%, 45%);
   font-family: "Architects Daughter", cursive;
   text-align: center;
   font-size: 130%;

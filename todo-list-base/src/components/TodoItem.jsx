@@ -1,20 +1,13 @@
-// criação de component todo item
-import React, { useState } from "react";
+import React, { useState } from 'react';
+
 
 function TodoItem(props) {
 
-    
-
-    function handleClick() {
-
-     
-    }
-
-    return (
+    return ( 
         <div onClick={ () => {
-            props.onCheked(props.id)
-        }}>
-           <li>{props.text}</li>
+            props.onChecked(props.id)
+        } }>
+            <li>{props.text}</li>
         </div>
     )
 }

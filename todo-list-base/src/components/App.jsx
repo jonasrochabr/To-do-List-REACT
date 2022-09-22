@@ -1,54 +1,45 @@
 import React, { useState } from "react";
 import TodoItem from "./TodoItem";
+import InputArea from "./InputArea";
 
 function App() {
 
-  const [inputText, setInputText] = useState('');
+  // tirou o state
+  
+  const [items, setItems] = useState([]);
 
-  const [itens, setItens] = useState([]);
+  // tirou a função 
 
-  function handleChange(event) {    //input tem implicito pass param "event"
-    const newValue = event.target.value;
-    setInputText(newValue)
-  }
-
-  function addIten() {
-    setItens( (prevItens) => {
-      return [...prevItens, inputText]
-    })
-    setInputText('')
+  function addItem(inputText) {
+    setItems( (prevItems) => {
+      return [...prevItems, inputText]
+    } )
+  //  setInputText('')
   }
 
   function deleteItem(id) {
-
-    setItens((prevItens) => {
-      return prevItens.filter( (item, index) => {
-        return index !== id
-      })
-    })
-
+      setItems( (prevItems) => {
+        return prevItems.filter(
+          (item, index) => {
+            return index !== id
+          }
+        )
+      } )
   }
 
   return (
     <div className="container">
       <div className="heading">
-        <h1>To-Do List</h1>
+        <h1>To-Do-List</h1>
       </div>
-      <div className="form">
-        <input onChange={handleChange} type="text" value={inputText}/>
-        <button onClick={addIten}>
-          <span>Adicionar</span>
-        </button>
-      </div>
+     
+      <InputArea onAdd={addItem} />
+
       <div>
         <ul>
-         {
-          itens.map( (todoIten, index) =>  <TodoItem 
-          key={index} 
-          id={index} 
-          text={todoIten} 
-          onChecked={deleteItem}/> )
-         }
+          {
+            items.map( (todoItem, index) => <TodoItem key={index} id={index} text={todoItem} onChecked={deleteItem} /> )
+          }
         </ul>
       </div>
     </div>
